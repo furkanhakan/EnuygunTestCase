@@ -1,0 +1,5 @@
+parameters:
+  provider1:
+    url: "%env(PROVIDER1_URL)%"
+  provider2:
+    url: "%env(PROVIDER2_URL)%"

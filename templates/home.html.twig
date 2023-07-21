@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            {% for developer in developers %}
+                <th scope="col">{{ developer.name }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for week, developerList in todoList %}
+            <tr>
+                <th scope="row">{{week}}. Hafta</th>
+                {% for developer in developers %}
+                    <td>
+                        {% if developerList[developer.name] is defined %}
+                            {% for task in developerList[developer.name] %}
+                                {{ task }} <br>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

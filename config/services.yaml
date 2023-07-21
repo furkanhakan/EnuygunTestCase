@@ -3,7 +3,8 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
+imports:
+    - { resource: parameters.yaml }
 
 services:
     # default configuration for services in *this* file
@@ -26,5 +27,12 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
+    provider1_service:
+        public: true
+        class: App\Service\TaskProvider\Provider1\Provider1Service
+
+    provider2_service:
+        public: true
+        class: App\Service\TaskProvider\Provider2\Provider2Service
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
